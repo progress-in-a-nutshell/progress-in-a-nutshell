@@ -1,4 +1,4 @@
-﻿# Duck kind in a nutshell
+﻿# Progress in a Nutshell
 
 This is currently a prototype of a Kurzgesagt game concept we are working on in godot.
 
