@@ -11,10 +11,10 @@ You start at the dawn of Duck kind(Humanity) and gradually evolve
 
 ## People working on it:
 
-- Falderappes
-- Deejah
-- Triw
-- Saf
-- Benji
-- Xtreme
-- smv
+- Falderappes (contributing ideas)
+- Deejah (contributing ideas)
+- Triw (contributing ideas)
+- Saf (contributing ideas)
+- Benji (contributing ideas, moral support and some git stuff from termux)
+- Xtreme (AKA infinitygamer404, the one who made this repo because smv was busy)
+- s-mv (actually knows quite a bit of godot)
