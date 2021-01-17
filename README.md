@@ -18,3 +18,7 @@ You start at the dawn of Duck kind(Humanity) and gradually evolve
 - Benji ( @Benjimanrich contributing ideas, moral support and some git stuff from termux)
 - Xtreme (AKA @infinitygamer404, the one who made this repo because smv was busy)
 - s-mv ( @s-mv actually knows quite a bit of godot)
+- Nigul\_senpai(contributing ideas)
+- RedMelonShark(Art and Graphics)
+- Potato(May help with godot soon+ideas)
+- Coder(Godot and ideas)
