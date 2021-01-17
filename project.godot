@@ -15,7 +15,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="duckkind-in-a-nutshell"
+config/name="progress-in-a-nutshell"
 config/icon="res://icon.png"
 
 [rendering]
