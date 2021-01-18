@@ -6,16 +6,16 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 3 ), ExtResource( 1 ), ExtResource( 2 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 1 ), ExtResource( 3 ) ],
 "loop": true,
 "name": "energy-icon",
-"speed": 6.0
+"speed": 5.0
 } ]
 
 [node name="Energy-icon" type="Node2D"]
 
 [node name="Animation" type="AnimatedSprite" parent="."]
+modulate = Color( 0.886275, 0.862745, 0.862745, 1 )
 frames = SubResource( 1 )
 animation = "energy-icon"
 frame = 2
-playing = true
