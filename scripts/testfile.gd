@@ -2,10 +2,11 @@ extends Node2D
 
 export var CAM_VEL = 600;
 
-var noise = OpenSimplexNoise.new();
+var noise : OpenSimplexNoise = OpenSimplexNoise.new();
 
 func _ready():
-	var world = load_world(); 
+	#var world = load_world(); 
+	var world = false;
 	if not world:
 		randomize();
 		for x in range(2):
@@ -16,6 +17,7 @@ func generate(cx, cy):
 	print("poggers");
 	# if($TileMap.get_cell(cx, cy) >= 0): return; # checking for no tiles
 	$TileMap.set_cell(cx, cy, 0);
+	noise.seed = randi() % 20 + 1;
 	for x in range(32):
 		for y in range(32):
 			$TileMap.set_cell(x + cx * 32, y + cy * 32, noise.get_noise_2d(x + cx * 32, y + cy * 32) * 4 + 4);
