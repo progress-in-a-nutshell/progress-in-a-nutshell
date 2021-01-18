@@ -26,16 +26,7 @@ func _process(dt):
     input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
     input_vector.y= Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
     if input_vector != Vector2.ZERO:
-        $Camera2D.position = CAM_VEL * dt * input_vector
-
-#	if(Input.is_action_pressed("ui_left")):
-#		$Camera2D.position.x -= CAM_VEL * dt;
-#	if(Input.is_action_pressed("ui_right")):
-#		$Camera2D.position.x += CAM_VEL * dt;
-#	if(Input.is_action_pressed("ui_up")):
-#		$Camera2D.position.y -= CAM_VEL * dt;
-#	elif(Input.is_action_pressed("ui_down")):
-#		$Camera2D.position.y += CAM_VEL * dt;
+        $Camera2D.position += CAM_VEL * dt * input_vector
 
 func save_world():
 	var savefile = File.new();
