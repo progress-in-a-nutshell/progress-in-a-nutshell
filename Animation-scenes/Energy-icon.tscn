@@ -19,3 +19,4 @@ modulate = Color( 0.886275, 0.862745, 0.862745, 1 )
 frames = SubResource( 1 )
 animation = "energy-icon"
 frame = 2
+playing = true
