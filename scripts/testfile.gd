@@ -35,9 +35,9 @@ func save_world():
 		savefile.store_double(c.x);
 		savefile.store_double(c.y);
 
-	for x in range(32):
-		for y in range(32):
-			savefile.store_8(x + c.x * 32, y + c.y * 32);
+		for x in range(32):
+			for y in range(32):
+				savefile.store_8(x + c.x * 32, y + c.y * 32);
 	savefile.close();
 
 
