@@ -22,7 +22,7 @@ func generate(cx, cy):
 
 
 func _process(dt):
-    var input_vector:Vector2()=Vector2.ZERO;
+    var input_vector : Vector2 =Vector2.ZERO;
     input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left");
     input_vector.y= Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up");
     if input_vector != Vector2.ZERO:
