@@ -13,7 +13,7 @@ func _ready():
 				generate(x, y);
 
 func generate(cx, cy):
-	print("poggers")
+	print("poggers");
 	# if($TileMap.get_cell(cx, cy) >= 0): return; # checking for no tiles
 	$TileMap.set_cell(cx, cy, 0);
 	for x in range(32):
@@ -23,10 +23,10 @@ func generate(cx, cy):
 
 func _process(dt):
     var input_vector=Vector2.ZERO;
-    input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
-    input_vector.y= Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
+    input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left");
+    input_vector.y= Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up");
     if input_vector != Vector2.ZERO:
-        $Camera2D.position += CAM_VEL * dt * input_vector
+        $Camera2D.position += CAM_VEL * dt * input_vector;
 
 func save_world():
 	var savefile = File.new();
@@ -51,6 +51,6 @@ func load_world():
 		$TileMap.set_cellv(c, 0);
 		for x in range(32):
 			for y in range(32):
-				$TileMap.set_cell(x + c.x * 32, y + c.y * 32, savefile.get_8())
+				$TileMap.set_cell(x + c.x * 32, y + c.y * 32, savefile.get_8());
 		return true;
 
