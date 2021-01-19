@@ -10,8 +10,12 @@ func _process(dt):
   var input_vector : Vector2 = Vector2.ZERO;
   input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left");
   input_vector.y= Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up");
-  if input_vector != Vector2.ZERO:
-    position += CAM_VEL * dt * input_vector * zoom;
+  if input_vector != Vector2.ZERO: position += CAM_VEL * dt * input_vector * zoom;
+    # var size : Vector2 = get_viewport_rect().size;
+    # if(position.x - size.x / 2 > limit_left and position.x + size.x / 2 < limit_right):
+    #   position.x += CAM_VEL * dt * input_vector.x * zoom.x;
+    # if(position.y - size.y / 2 > limit_top and position.y + size.y / 2 < limit_bottom):
+    #   position.y += CAM_VEL * dt * input_vector.y * zoom.y;
 
 func _input(e):
   if e is InputEventMouseButton:
@@ -26,5 +30,5 @@ func _input(e):
             self.zoom -= Vector2(SCROLL_LIM, SCROLL_LIM);
         if(e.delta.y < 0):
             self.zoom += Vector2(SCROLL_LIM, SCROLL_LIM);
-  zoom.x = clamp(zoom.x, 1, 12);
-  zoom.y = clamp(zoom.y, 1, 12);
+  zoom.x = clamp(zoom.x, 0.1, 200);
+  zoom.y = clamp(zoom.y, 0.1, 200);

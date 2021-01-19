@@ -15,10 +15,23 @@ func generate(cx, cy, len_):
   # if($TileMap.get_cell(cx, cy) >= 0): return; # checking for no tiles
   $TileMap.set_cell(cx, cy, 0);
   noise.seed = randi();
+  noise.octaves = 12;
+  noise.period = 12.0;
+  noise.persistence = 0.1;
+
+  # var l = 3;
+  # var min_ = 3;
+  # var max_ = 3;
   for x in range(len_):
     for y in range(len_):
-      # print(floor(noise.get_noise_2d(x + cx * 32, y + cy * 32) * 3 + 3));
-      $TileMap.set_cell(x + cx * 32, y + cy * 32, floor(noise.get_noise_2d(x + cx * 32, y + cy * 32) * 3 + 3));
+      # noise.seed = randi();
+      # if(l != floor(noise.get_noise_2d(x + cx * 32, y + cy * 32)) * 3 + 3):
+      #   print(floor(noise.get_noise_2d(x + cx * 32, y + cy * 32)) * 3 + 3);
+      # if(l < min_): min_ = l;
+      # if(l > max_): max_ = l;
+      #   print(floor(3 * noise.get_noise_2d(x + cx * 32, y + cy * 32)));
+      $TileMap.set_cell(x + cx * 32, y + cy * 32, noise.get_noise_2d(x + cx * 32, y + cy * 32) * 3 + 3);
+  # print("min ", min_, " max ", max_)
 
 func save_world():
   var savefile = File.new();
