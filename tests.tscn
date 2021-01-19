@@ -8,8 +8,7 @@
 script = ExtResource( 1 )
 
 [node name="TileMap" type="TileMap" parent="."]
-position = Vector2( 0, -296 )
-scale = Vector2( 0.2, 0.2 )
+position = Vector2( 0, -512 )
 mode = 1
 tile_set = ExtResource( 3 )
 cell_size = Vector2( 256, 128 )
@@ -18,5 +17,6 @@ format = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
+zoom = Vector2( 4, 4 )
 smoothing_enabled = true
 script = ExtResource( 2 )

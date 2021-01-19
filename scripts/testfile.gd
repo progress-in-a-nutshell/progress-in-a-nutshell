@@ -1,7 +1,5 @@
 extends Node2D
 
-export var CAM_VEL = 600;
-
 var noise : OpenSimplexNoise = OpenSimplexNoise.new();
 
 func _ready():

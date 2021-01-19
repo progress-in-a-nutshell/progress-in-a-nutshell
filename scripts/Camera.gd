@@ -11,7 +11,7 @@ func _process(dt):
   input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left");
   input_vector.y= Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up");
   if input_vector != Vector2.ZERO:
-    position += CAM_VEL * dt * input_vector;
+    position += CAM_VEL * dt * input_vector * zoom;
 
 func _input(e):
   if e is InputEventMouseButton:
@@ -20,5 +20,5 @@ func _input(e):
         self.zoom -= Vector2(SCROLL_LIM, SCROLL_LIM);
       if (e.button_index == BUTTON_WHEEL_DOWN):
         self.zoom += Vector2(SCROLL_LIM, SCROLL_LIM);
-  zoom.x = clamp(zoom.x, 0.2, 4);
-  zoom.y = clamp(zoom.y, 0.2, 4);
+  zoom.x = clamp(zoom.x, 1, 12);
+  zoom.y = clamp(zoom.y, 1, 12);
