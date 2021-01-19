@@ -20,5 +20,11 @@ func _input(e):
         self.zoom -= Vector2(SCROLL_LIM, SCROLL_LIM);
       if (e.button_index == BUTTON_WHEEL_DOWN):
         self.zoom += Vector2(SCROLL_LIM, SCROLL_LIM);
+  #for macos
+  if e is InputEventPanGesture:
+        if(e.delta.y > 0):
+            self.zoom -= Vector2(SCROLL_LIM, SCROLL_LIM);
+        if(e.delta.y < 0):
+            self.zoom += Vector2(SCROLL_LIM, SCROLL_LIM);
   zoom.x = clamp(zoom.x, 1, 12);
   zoom.y = clamp(zoom.y, 1, 12);
