@@ -4,7 +4,7 @@ extends Node2D
 func _ready():
   # var world = load_world(); 
   # world is false for now as we don't want saving and loading
-  var world = false;
+  var world:bool = false;
   if not world:
     randomize();
     generate(0, 0, 128);
@@ -25,7 +25,7 @@ func generate(cx, cy, len_):
       $TileMap.set_cell(x + cx * 32, y + cy * 32, noise.get_noise_2d(x + cx * 32, y + cy * 32) * 3 + 3);
 
 func save_world():
-  var savefile = File.new();
+  var savefile:File = File.new();
   savefile.open("user://saved.map", File.WRITE);
   for c in $TileMap.get_used_cells():
     savefile.store_double(c.x);

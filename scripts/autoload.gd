@@ -1,6 +1,6 @@
 extends Node
 
-var gravity = 80;
+var gravity:int = 80;
 
 # default save stats, I have no idea what to add
 var stats = {
@@ -18,3 +18,5 @@ func load():
   if not save_game.file_exists("user://savegame.save"): return;
   save_game.open("user://savegame.save", File.READ)
   stats = save_game.get_as_text() # yay
+
+  
