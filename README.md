@@ -1,5 +1,6 @@
-<p align="center"><a href="https://github.com/thecoder-001/MineColab"><img src="https://github.com/thecoder-001/progress-in-a-nutshell/blob/main/logo.png" alt="Progress in a Nutshell" height="80"/></a></p>
+<p align="center"><a href="https://github.com/thecoder-001/progress-in-a-nutshell"><img src="https://github.com/thecoder-001/progress-in-a-nutshell/blob/main/logo.png" alt="Progress in a Nutshell" height="80"/></a></p>
 <p align="center">A prototype game</p>
+<p align="left"><img src="https://img.shields.io/static/v1?label=made%20with&message=godot&color=blue&style=flat&logo=godot-engine">           <img src="https://img.shields.io/static/v1?label=status&message=prototype&color=blue&style=flat"></p>
 
 :construction: This is currently a **prototype** of a Kurzgesagt game concept we are working on in godot.</p>
 
