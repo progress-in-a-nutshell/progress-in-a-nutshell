@@ -11,7 +11,7 @@ func _process(dt):
   input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left");
   input_vector.y= Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up");
   if input_vector != Vector2.ZERO: 
-    osition += CAM_VEL * dt * input_vector * zoom;
+    position += CAM_VEL * dt * input_vector * zoom;
 
     # var size : Vector2 = get_viewport_rect().size;
     # if(position.x - size.x / 2 > limit_left and position.x + size.x / 2 < limit_right):
