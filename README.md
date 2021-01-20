@@ -1,4 +1,4 @@
-<h1 align="center">Progress in a Nutshell</h1>
+<p align="center"><a href="https://github.com/thecoder-001/MineColab"><img src="https://github.com/thecoder-001/progress-in-a-nutshell/blob/main/logo.png" alt="Progress in a Nutshell" height="80"/></a></p>
 <p align="center">A prototype game</p>
 
 :construction: This is currently a **prototype** of a Kurzgesagt game concept we are working on in godot.</p>
