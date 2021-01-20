@@ -8,7 +8,6 @@
 script = ExtResource( 1 )
 
 [node name="TileMap" type="TileMap" parent="."]
-position = Vector2( 0, -512 )
 mode = 1
 tile_set = ExtResource( 3 )
 cell_size = Vector2( 256, 128 )
@@ -16,7 +15,8 @@ cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 format = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 0, 3200 )
 current = true
-zoom = Vector2( 4, 4 )
+zoom = Vector2( 8, 8 )
 smoothing_enabled = true
 script = ExtResource( 2 )

@@ -1,37 +1,28 @@
 extends Node2D
 
-var noise : OpenSimplexNoise = OpenSimplexNoise.new();
 
 func _ready():
   # var world = load_world(); 
-
+  # world is false for now as we don't want saving and loading
   var world = false;
   if not world:
     randomize();
     generate(0, 0, 128);
-
+    
 func generate(cx, cy, len_):
-  print("poggers");
-  # if($TileMap.get_cell(cx, cy) >= 0): return; # checking for no tiles
+  # poggersn't
+  # print("poggers");
+  if($TileMap.get_cell(cx, cy) >= 0): return; # checking for existing tiles
   $TileMap.set_cell(cx, cy, 0);
+  # noise tweaks for now
+  var noise : OpenSimplexNoise = OpenSimplexNoise.new();
   noise.seed = randi();
-  noise.octaves = 12;
-  noise.period = 12.0;
-  noise.persistence = 0.1;
+  noise.octaves = 5;
+  noise.persistence = 0.2;
 
-  # var l = 3;
-  # var min_ = 3;
-  # var max_ = 3;
   for x in range(len_):
     for y in range(len_):
-      # noise.seed = randi();
-      # if(l != floor(noise.get_noise_2d(x + cx * 32, y + cy * 32)) * 3 + 3):
-      #   print(floor(noise.get_noise_2d(x + cx * 32, y + cy * 32)) * 3 + 3);
-      # if(l < min_): min_ = l;
-      # if(l > max_): max_ = l;
-      #   print(floor(3 * noise.get_noise_2d(x + cx * 32, y + cy * 32)));
       $TileMap.set_cell(x + cx * 32, y + cy * 32, noise.get_noise_2d(x + cx * 32, y + cy * 32) * 3 + 3);
-  # print("min ", min_, " max ", max_)
 
 func save_world():
   var savefile = File.new();
