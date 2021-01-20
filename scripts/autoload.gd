@@ -19,4 +19,9 @@ func load():
   save_game.open("user://savegame.save", File.READ)
   stats = save_game.get_as_text() # yay
 
-  
+ #I was recently watching a video on game programming
+ #And it was about DRY. So from an example in that video
+ #I am saying to make a function which will replace the save_game declaration
+ #with a function.
+ #This may help with easier maintainability
+ #-Benji
