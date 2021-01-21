@@ -25,3 +25,4 @@ func load():
  #with a function.
  #This may help with easier maintainability
  #-Benji
+#nevermind I realised this was a local variable instead of global
