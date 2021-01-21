@@ -4,7 +4,7 @@ extends Node2D
 func _ready():
   # var world = load_world(); 
   # world is false for now as we don't want saving and loading
-  var world = false;
+  var world:bool = false;
   if not world:
     randomize();
     generate(0, 0, 128);
@@ -12,6 +12,7 @@ func _ready():
 func generate(cx, cy, len_):
   # poggersn't
   # print("poggers");
+  #Terrain generation
   if($TileMap.get_cell(cx, cy) >= 0): return; # checking for existing tiles
   $TileMap.set_cell(cx, cy, 0);
   # noise tweaks for now
@@ -19,13 +20,13 @@ func generate(cx, cy, len_):
   noise.seed = randi();
   noise.octaves = 5;
   noise.persistence = 0.2;
-
+  
   for x in range(len_):
     for y in range(len_):
       $TileMap.set_cell(x + cx * 32, y + cy * 32, noise.get_noise_2d(x + cx * 32, y + cy * 32) * 3 + 3);
 
 func save_world():
-  var savefile = File.new();
+  var savefile:File = File.new();
   savefile.open("user://saved.map", File.WRITE);
   for c in $TileMap.get_used_cells():
     savefile.store_double(c.x);
@@ -33,11 +34,12 @@ func save_world():
 
     for x in range(32):
       for y in range(32):
-        savefile.store_8(x + c.x * 32, y + c.y * 32);
+        savefile.store_8($TileMap.get_cell(x + c.x * 32, y + c.y *32));
+        savefile.store_8(y + c.y * 32);
   savefile.close();
 
 func load_world():
-  var savefile = File.new();
+  var savefile:File = File.new();
   # check if savefile exists
   if not savefile.file_exists("user://saved.map"): return false;
   savefile.open("user://saved.map", File.READ);  
