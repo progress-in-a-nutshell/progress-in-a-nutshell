@@ -1,8 +1,9 @@
 extends Camera2D
 
-#Global and exported variables
+#Global and exported variables and constants
 export var CAM_VEL : int = 600;
-export var SCROLL_LIM : float = 0.1;
+const SCROLL_LIM : float = 0.1;
+const ZOOMCAM:Vector2 = Vector2(SCROLL_LIM,SCROLL_LIM)*5;
 
 func _ready():
   pass
@@ -31,17 +32,17 @@ func _input(e):
   if e is InputEventMouseButton:
     if e.is_pressed(): #We may have to use match or an enum here soon
       if (e.button_index == BUTTON_WHEEL_UP):
-        self.zoom -= Vector2(SCROLL_LIM, SCROLL_LIM);
+        self.zoom -= ZOOMCAM;
       if (e.button_index == BUTTON_WHEEL_DOWN):
-        self.zoom += Vector2(SCROLL_LIM, SCROLL_LIM);
+        self.zoom += ZOOMCAM;
 
   #for macos and touchpads
   if e is InputEventPanGesture:
         if(e.delta.y > 0):
-            self.zoom -= Vector2(SCROLL_LIM, SCROLL_LIM);
+            self.zoom -= ZOOMCAM;
         if(e.delta.y < 0):
-            self.zoom += Vector2(SCROLL_LIM, SCROLL_LIM);
+            self.zoom += ZOOMCAM;
 
   #Zoom Limit
-  zoom.x = clamp(zoom.x, 0.1, 200);
-  zoom.y = clamp(zoom.y, 0.1, 200);
+  zoom.x = clamp(zoom.x, 1, 100);
+  zoom.y = clamp(zoom.y, 1, 100);
