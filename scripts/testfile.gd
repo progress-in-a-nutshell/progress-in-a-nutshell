@@ -2,16 +2,16 @@ extends Node2D
 
 
 func _ready():
-  # var world = load_world(); 
+  # var world := load_world();
   # world is false for now as we don't want saving and loading
-  var world:bool = false;
+  var world : bool = false;
+  print("poggers");
   if not world:
     randomize();
     generate(0, 0, 128);
-    
+
 func generate(cx, cy, len_):
-  # poggersn't
-  # print("poggers");
+  print("poggers");
   #Terrain generation
   if($TileMap.get_cell(cx, cy) >= 0): return; # checking for existing tiles
   $TileMap.set_cell(cx, cy, 0);
