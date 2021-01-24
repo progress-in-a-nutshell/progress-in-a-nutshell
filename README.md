@@ -28,3 +28,6 @@ You start at the dawn of Duck kind(Humanity) and gradually evolve
 |    Potato      | May help with godot soon+ideas |
 |   Coder001     | Godot and ideas     |
 |   Orangemn6    | Website and ideas   |
+
+
+USES GNU FREEFONTS, COURTESY OF THE GNU PROJECT 
