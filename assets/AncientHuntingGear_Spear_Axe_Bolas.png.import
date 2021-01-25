@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/logo.png-cca8726399059c8d4f806e28e356b14d.stex"
+path="res://.import/AncientHuntingGear_Spear_Axe_Bolas.png-47a7d26eb1a677f116ee2825375e4a1c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://logo.png"
-dest_files=[ "res://.import/logo.png-cca8726399059c8d4f806e28e356b14d.stex" ]
+source_file="res://assets/AncientHuntingGear_Spear_Axe_Bolas.png"
+dest_files=[ "res://.import/AncientHuntingGear_Spear_Axe_Bolas.png-47a7d26eb1a677f116ee2825375e4a1c.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
