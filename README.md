@@ -10,6 +10,8 @@
 A strategy like game which is a middle ground between civilizations and Clash of Clans
 You start at the dawn of Duck kind(Humanity) and gradually evolve
 
+Website (in development): [In A Nutshell](https://progress-in-a-nutshell.netlify.app)
+
 
 ## :bird: People working on it:
 
