@@ -5,25 +5,9 @@ func _ready():
   # var world := load_world();
   # world is false for now as we don't want saving and loading
   var world : bool = false;
-  print("poggers");
   if not world:
     randomize();
-    generate(0, 0, 128);
-
-func generate(cx, cy, len_):
-  print("poggers");
-  #Terrain generation
-  if($TileMap.get_cell(cx, cy) >= 0): return; # checking for existing tiles
-  $TileMap.set_cell(cx, cy, 0);
-  # noise tweaks for now
-  var noise : OpenSimplexNoise = OpenSimplexNoise.new();
-  noise.seed = randi();
-  noise.octaves = 5;
-  noise.persistence = 0.2;
-  
-  for x in range(len_):
-    for y in range(len_):
-      $TileMap.set_cell(x + cx * 32, y + cy * 32, noise.get_noise_2d(x + cx * 32, y + cy * 32) * 3 + 3);
+    $TileMap.generate(0, 0, 128);
 
 func save_world():
   var savefile:File = File.new();
