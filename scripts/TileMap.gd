@@ -2,7 +2,6 @@ extends TileMap
 
 # last tile hover stuff
 var lastTile : Vector2 = Vector2(0, 0);
-var tileType : int = -1;
 
 func _ready():
   pass;
@@ -14,12 +13,20 @@ func _input(event):
     pass;
   elif (event is InputEventMouseMotion):
     # print(world_to_map(get_global_mouse_position()));
-    set_cell(lastTile.x, lastTile.y, tileType);
-    lastTile = world_to_map(get_global_mouse_position());
-    tileType = get_cell(lastTile.x, lastTile.y);
-    set_cell(lastTile.x, lastTile.y, 0);
+    move_selection();
     pass;
 
+
+func move_selection():
+  var pos : Vector2 = world_to_map(get_global_mouse_position());
+  if(lastTile != pos):
+    var cell : int = get_cell(pos.x, pos.y);
+    var lastCell : int = get_cell(lastTile.x, lastTile.y);
+
+    set_cell(lastTile.x, lastTile.y, lastCell - 6);
+
+    lastTile = pos;
+    set_cell(pos.x, pos.y, cell + 6);
 
 func generate(cx, cy, len_):
   print("poggers");
@@ -36,4 +43,3 @@ func generate(cx, cy, len_):
   for x in range(len_):
     for y in range(len_):
       set_cell(x + cx * 32, y + cy * 32, noise.get_noise_2d(x + cx * 32, y + cy * 32) * 3 + 3);
-  tileType = get_cell(0, 0);

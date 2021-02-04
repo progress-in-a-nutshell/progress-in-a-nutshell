@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tiles.old.png-fe6951a79a1742c76539b78fa52382b4.stex"
+path="res://.import/tiles.earth.png-004e08522c7cfd0beca7f38aa9e8dcfd.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Tiles/tiles.old.png"
-dest_files=[ "res://.import/tiles.old.png-fe6951a79a1742c76539b78fa52382b4.stex" ]
+source_file="res://assets/Tiles/tiles.earth.png"
+dest_files=[ "res://.import/tiles.earth.png-004e08522c7cfd0beca7f38aa9e8dcfd.stex" ]
 
 [params]
 
@@ -30,5 +30,5 @@ process/HDR_as_SRGB=false
 process/invert_color=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

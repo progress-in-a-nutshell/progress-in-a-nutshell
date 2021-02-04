@@ -18,12 +18,8 @@ func _process(dt):
   #Position updates
   if input_vector != Vector2.ZERO: 
     position += CAM_VEL * dt * input_vector * zoom;
-  # Nub code trying to limit camera
-    # var size : Vector2 = get_viewport_rect().size;
-    # if(position.x - size.x / 2 > limit_left and position.x + size.x / 2 < limit_right):
-    #   position.x += CAM_VEL * dt * input_vector.x * zoom.x;
-    # if(position.y - size.y / 2 > limit_top and position.y + size.y / 2 < limit_bottom):
-    #   position.y += CAM_VEL * dt * input_vector.y * zoom.y;
+
+  get_tree().get_root().get_node("Node2D/TileMap").move_selection();
 
 
 func _input(e):
