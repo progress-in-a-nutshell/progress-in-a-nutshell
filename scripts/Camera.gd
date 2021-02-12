@@ -6,7 +6,10 @@ const SCROLL_LIM : float = 0.1;
 const ZOOMCAM:Vector2 = Vector2(SCROLL_LIM,SCROLL_LIM)*10;
 
 func _ready():
-  pass
+  var energy : int = 1000;
+  var trust : int = 100;
+  var stability : int = 100;
+  pass;
 
 func _process(dt):
   #Motion controls. Thanks to HeartBeast
