@@ -13,14 +13,14 @@ func _ready():
 
 func _process(dt):
   #Motion controls. Thanks to HeartBeast
-  var input_vector : Vector2 = Vector2.ZERO;
+  var inputVector : Vector2 = Vector2.ZERO;
 
-  input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left");
-  input_vector.y= Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up");
+  inputVector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left");
+  inputVector.y= Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up");
 
   #Position updates
-  if input_vector != Vector2.ZERO: 
-    position += CAM_VEL * dt * input_vector * zoom;
+  if inputVector != Vector2.ZERO: 
+    position += CAM_VEL * dt * inputVector * zoom;
 
   get_tree().get_root().get_node("Node2D/TileMap").move_selection();
 
