@@ -28,8 +28,13 @@ func move_selection():
     lastTile = pos;
     set_cell(pos.x, pos.y, cell + 6);
 
+# BEWARE! TEST FUNCTION! Swap the functions if you want random terrain.
 func generate(cx, cy, len_):
-  print("poggers");
+  for x in range(len_):
+    for y in range(len_):
+      set_cell(x, y, 5 * x / len_);
+
+func generate_actually(cx, cy, len_):
   #Terrain generation
   if(get_cell(cx, cy) >= 0): return; # checking for existing tiles
   set_cell(cx, cy, 0);

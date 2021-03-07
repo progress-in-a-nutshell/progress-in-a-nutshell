@@ -8,10 +8,12 @@ func _ready():
   if not world:
     randomize();
     $TileMap.generate(0, 0, 128);
+    $ResourceTileMap.generate(0, 0, 128);
 
 func save_world():
   var savefile:File = File.new();
   savefile.open("user://saved.map", File.WRITE);
+
   for c in $TileMap.get_used_cells():
     savefile.store_double(c.x);
     savefile.store_double(c.y);
