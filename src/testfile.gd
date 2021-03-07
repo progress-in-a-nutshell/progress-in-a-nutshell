@@ -1,6 +1,5 @@
 extends Node2D
 
-
 func _ready():
   # var world := load_world();
   # world is false for now as we don't want saving and loading
