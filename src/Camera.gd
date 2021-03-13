@@ -24,7 +24,7 @@ func _process(dt: float):
 	axis.x = moveTowards(axis.x, rawAxis.x, dt / accelerateTime if rawAxis.x != 0.0 else deaccelerateTime);
 	axis.y = moveTowards(axis.y, rawAxis.y, dt / accelerateTime if rawAxis.x != 0.0 else deaccelerateTime);
 
-	if rawAxis.x != 0.0 && rawAxis.y != 0.0: axis = axis.normalized();
+	if axis.length_squared() > 1.0: axis = axis.normalized();
 
 	transform.origin += axis * dt * camSpeed;
 
