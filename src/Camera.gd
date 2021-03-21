@@ -1,63 +1,37 @@
 extends Camera2D
 
-#Global and exported variables and constants
-export(float) var camSpeed: float = 100.0;
-export(float) var maxZoom: float = 10.0;
-export(float) var minZoom: float = .1;
-export(float) var zoomSpeed: float = .2;
-export(float) var zoomTime: float = .2;
+export(float) var camSpeed := 720.0;
+# export(float) var accelerateTime := .125;
+# export(float) var deaccelerateTime := .15;
 
-var defaultZoom: Vector2;
-var targetZoom: float;
-var crntZoom: float;
-var zoomEaseTime: float;
-
-
-
-func _ready():
-	defaultZoom = zoom;
-	targetZoom = 1;
-	crntZoom = 1;
+const SCROLL_LIM : float = 0.1;
+const ZOOMCAM : Vector2 = Vector2(SCROLL_LIM,SCROLL_LIM) * 10;
 
 func _process(dt: float):
-	#camera motion control
-	var inputVector : Vector2 = Vector2.ZERO;
-	inputVector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left");
-	inputVector.y= Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up");
-  #Position updates
-	if inputVector != Vector2.ZERO: 
-		position += camSpeed * dt * inputVector * zoom;
-		if inputVector > Vector2(1,1) and inputVector < Vector2(0,0):
-			position = position.normalized();
+  # camera motion control, VERY optimised :P
+  position += Vector2(
+    # x control
+    int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left")),
+    # y control
+    int(Input.is_action_pressed("ui_down"))  - int(Input.is_action_pressed("ui_up"))
+    ).normalized() * camSpeed * self.zoom * dt;
 
-	get_tree().get_root().get_node("Node2D/TileMap").move_selection();
-	
-	#zoom ease
-	if zoomEaseTime > 0:
-		zoomEaseTime -= dt / zoomTime if zoomTime > 0 else 1.0;
-		if zoomEaseTime < 0: zoom = defaultZoom * targetZoom;
-		else: zoom = (defaultZoom * targetZoom).linear_interpolate(defaultZoom * crntZoom, zoomEaseTime * zoomEaseTime);
+func _input(e):
+  # Camera Zooming
+  # for a normal mouse
+  if e is InputEventMouseButton:
+    if e.is_pressed(): # we may have to use match or an enum here soon
+      if (e.button_index == BUTTON_WHEEL_UP):
+        self.zoom -= ZOOMCAM;
+      if (e.button_index == BUTTON_WHEEL_DOWN):
+        self.zoom += ZOOMCAM;
 
-func setZoom(zoomIn: bool):
-	crntZoom = zoom.x / defaultZoom.x;
-	zoomEaseTime = 1;
-	if zoomIn: targetZoom -= zoomSpeed;
-	elif !zoomIn: targetZoom += zoomSpeed;
-	targetZoom = clamp(targetZoom, minZoom, maxZoom);
-
-func _input(e: InputEvent):
-	#Camera Zooming
-	# for a normal mouse
-	if e is InputEventMouseButton:
-		if e.is_pressed(): #We may have to use match or an enum here soon
-			if (e.button_index == BUTTON_WHEEL_UP):
-				setZoom(true);
-			if (e.button_index == BUTTON_WHEEL_DOWN):
-				setZoom(false);
-
-	#for macos and touchpads
-	if e is InputEventPanGesture:
-		if(e.delta.y > 0.0):
-			setZoom(true);
-		if(e.delta.y < 0.0):
-			setZoom(false);
+  # for macos and touchpads
+  if e is InputEventPanGesture:
+    if(e.delta.y > 0.0): 
+      self.zoom -= ZOOMCAM;
+    if(e.delta.y < 0.0):
+      self.zoom += ZOOMCAM;
+  # Zoom Limit
+  zoom.x = clamp(zoom.x, 1.0, 100.0);
+  zoom.y = clamp(zoom.y, 1.0, 100.0);
