@@ -1,24 +1,18 @@
 extends Camera2D
 
 #Global and exported variables and constants
-export(float) var camSpeed: float = 1500.0;
-export(float) var accelerateTime: float = .125;
-export(float) var deaccelerateTime: float = .15;
+export(float) var camSpeed: float = 100.0;
 export(float) var maxZoom: float = 10.0;
 export(float) var minZoom: float = .1;
 export(float) var zoomSpeed: float = .2;
 export(float) var zoomTime: float = .2;
 
-var axis: Vector2;
 var defaultZoom: Vector2;
 var targetZoom: float;
 var crntZoom: float;
 var zoomEaseTime: float;
 
-func moveTowards(crnt: float, target: float, speed: float) -> float:
-	var diff := target - crnt;
-	if abs(diff) > speed: return crnt + sign(diff) * speed;
-	return target;
+
 
 func _ready():
 	defaultZoom = zoom;
@@ -27,18 +21,14 @@ func _ready():
 
 func _process(dt: float):
 	#camera motion control
-	var rawAxis: Vector2;
-	if Input.is_key_pressed(KEY_W): rawAxis.y -= 1.0;
-	if Input.is_key_pressed(KEY_S): rawAxis.y += 1.0;
-	if Input.is_key_pressed(KEY_D): rawAxis.x += 1.0;
-	if Input.is_key_pressed(KEY_A): rawAxis.x -= 1.0;
-	
-	axis.x = moveTowards(axis.x, rawAxis.x, dt / accelerateTime if rawAxis.x != 0.0 else deaccelerateTime);
-	axis.y = moveTowards(axis.y, rawAxis.y, dt / accelerateTime if rawAxis.x != 0.0 else deaccelerateTime);
-
-	if axis.length_squared() > 1.0: axis = axis.normalized();
-
-	transform.origin += axis * dt * camSpeed;
+	var inputVector : Vector2 = Vector2.ZERO;
+	inputVector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left");
+	inputVector.y= Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up");
+  #Position updates
+	if inputVector != Vector2.ZERO: 
+		position += camSpeed * dt * inputVector * zoom;
+		if inputVector > Vector2(1,1) and inputVector < Vector2(0,0):
+			position = position.normalized();
 
 	get_tree().get_root().get_node("Node2D/TileMap").move_selection();
 	
