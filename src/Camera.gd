@@ -16,6 +16,7 @@ func _process(dt: float):
 	int(Input.is_action_pressed("ui_down"))  - int(Input.is_action_pressed("ui_up"))
 	).normalized() * camSpeed * self.zoom * dt;
 
+
 func _input(e):
 	# Camera Zooming
 	# for a normal mouse
@@ -25,8 +26,7 @@ func _input(e):
 				self.zoom -= ZOOMCAM;
 			elif(e.button_index == BUTTON_WHEEL_DOWN):
 				self.zoom += ZOOMCAM;
-
-  # for macos and touchpads
+	# for macos and touchpads
 	if e is InputEventPanGesture:
 		if(e.delta.y > 0.0): 
 			self.zoom -= ZOOMCAM;
