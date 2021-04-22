@@ -30,13 +30,11 @@ func _input(e):
 	# Camera Zooming
 	# for a normal mouse
 	if e is InputEventMouseButton:
-		if e.is_pressed():  # we may have to use match or an enum here soon
+		# we may have to use match or an enum here soon
+		if e.is_pressed():
 			if e.button_index == BUTTON_WHEEL_UP:
 				self.zoom -= ZOOMCAM
-			elif (
-				e.button_index
-				== BUTTON_WHEEL_DOWN
-			):
+			elif e.button_index == BUTTON_WHEEL_DOWN:
 				self.zoom += ZOOMCAM
 	# for macos and touchpads
 	if e is InputEventPanGesture:
