@@ -1,7 +1,9 @@
 extends TileMap
 
+
 func _ready():
-	pass # Replace with function body.
+	pass  # Replace with function body.
+
 
 func generate(cx, cy, len_):
 	for x in range(len_ / 2):
