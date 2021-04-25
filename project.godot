@@ -15,7 +15,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Kurzgame"
-run/main_scene="res://scn/MainMenu.tscn"
+run/main_scene="res://scn/menu_scenes/MainMenu.tscn"
 config/icon="res://assets/axe.png"
 
 [display]
