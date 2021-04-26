@@ -1,7 +1,7 @@
 extends TileMap
 
 # last tile hover stuff
-var lastTile := Vector2(0, 0)
+var lastTile := Vector2(-1, -1)
 
 
 func _ready():
