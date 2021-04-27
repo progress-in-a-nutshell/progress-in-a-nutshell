@@ -1,7 +1,5 @@
 extends "Tile.gd"
 
-# The tile class is used to define any 2d position on the map
-# and give it attributes 
 class ResourceTile:
 
 	var remaining:int 		setget  SetRemaining, GetRemaining
