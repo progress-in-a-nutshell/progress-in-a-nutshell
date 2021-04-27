@@ -1,7 +1,8 @@
 extends Button
 
 func _on_Play_pressed():
-	get_tree().change_scene("res://scn/tests.tscn")
+	# get_tree().change_scene("res://scn/tests.tscn")
+	get_tree().change_scene("res://scn/game-scenes/GameScene.tscn")
 
 func _on_Options_pressed():
 	get_tree().change_scene("res://scn/menu_scenes/OptionsMenu.tscn")
