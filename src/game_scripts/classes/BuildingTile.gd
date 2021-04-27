@@ -2,7 +2,7 @@ extends Node
 
 # The tile class is used to define any 2d position on the map
 # and give it attributes 
-class Tile:
+class BuildingTile:
 	
 	var name: String 			setget  SetName, GetName
 	var description: String 	setget  SetDescription, GetDescription

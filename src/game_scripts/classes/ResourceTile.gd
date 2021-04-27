@@ -1,69 +1,59 @@
-extends Node
+extends "Tile.gd"
 
 # The tile class is used to define any 2d position on the map
 # and give it attributes 
-class Tile:
-	
-	var name: String 			setget  SetName, GetName
-	var description: String 	setget  SetDescription, GetDescription
-	var type:String 			setget  SetType, GetType
-	var position: Vector2 		setget  SetPosition, GetPosition
-	var texture: Texture3D 		setget  SetTexture, GetTexture
-	var owner:String 			setget  SetOwner, GetOwner
-	var status:String 			setget  SetStatus, GetStatus
+class ResourceTile:
 
+	var remaining:int 		setget  SetRemaining, GetRemaining
+	var level:int 			setget  SetLevel, GetLevel
+	var max_level:int 		setget  SetMaxLevel, GetMaxLevel
+	var output:int 			setget  SetOutput, GetOutput
+	var resource 			setget  SetResource, GetResource
+	var level_cost:int 		setget  SetLevelCost, GetLevelCost
 	
 	# The constructor for this class
 	# Is used when making a instance of this class and has as purpose
 	# To initilize its varibles
-	func _init(name: String, description: String, type:String, position:Vector2, texture:Texture3D, owner:String, status:String):
-		self.name = name
-		self.description = description
-		self.type = type
-		self.position = position
-		self.texture = texture
-		self.owner = owner
-		self.status = status
+	func _init(remaining:int, level:int, max_level:int, output:int, resource, level_cost:int):
+		self.remaining = remaining
+		self.level = level
+		self.max_level = max_level
+		self.output = output
+		self.resource = resource
+		self.level_cost = level_cost
 		
-	# getter & setter ( name:String )
-	func SetName(value: String):
-		name = value
-	func GetName():
-		return name # Getter must return a value.
+	# getter & setter ( remaining:Int)
+	func SetRemaining(value: int ):
+		remaining = value
+	func GetRemaining():
+		return remaining # Getter must return a value.
 	
-	# getter & setter ( description:String )
-	func SetDescription(value: String):
-		description = value
-	func GetDescription():
-		return description # Getter must return a value.
+	# getter & setter ( level:Int)
+	func SetLevel(value: int ):
+		level = value
+	func GetLevel():
+		return level
 	
-	# getter & setter ( type: String )
-	func SetType(value: String):
-		type = value
-	func GetType():
-		return type # Getter must return a value.
+	# getter & setter ( max_level:Int)
+	func SetMaxLevel(value: int ):
+		max_level = value
+	func GetMaxLevel():
+		return max_level
 	
-	# getter & setter ( position:Vector2 )
-	func SetPosition(value: Vector2):
-		position = value
-	func GetPosition():
-		return position # Getter must return a value.
+	# getter & setter ( output:Int)
+	func SetOutput(value: int ):
+		output = value
+	func GetOutput():
+		return output
 	
-	# getter & setter ( texture: Texture3D )
-	func SetTexture(value: Texture3D):
-		texture = value
-	func GetTexture():
-		return texture # Getter must return a value.
+	# getter & setter ( resource:Int)
+	func SetResource(value ):
+		resource = value
+	func GetResource():
+		return resource
 	
-	# getter & setter ( Owner:String/ENUM )
-	func SetOwner(value: String):
-		owner = value
-	func GetOwner():
-		return owner # Getter must return a value.
-	
-	# getter & setter ( status:String/ENUM )
-	func SetStatus(value: String ):
-		status = value
-	func GetStatus():
-		return status # Getter must return a value.
-	
+	# getter & setter ( level_cost:Int)
+	func SetLevelCost(value: int ):
+		level_cost = value
+	func GetLevelCost():
+		return level_cost
