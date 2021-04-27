@@ -65,9 +65,11 @@ custom_colors/font_color = Color( 0, 0.752941, 1, 1 )
 custom_colors/font_color_hover = Color( 0.0392157, 0.305882, 0.403922, 1 )
 custom_colors/font_color_pressed = Color( 0.0156863, 0.2, 0.243137, 1 )
 text = "Exit"
+script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [connection signal="pressed" from="Control/Options" to="Control/Options" method="_on_Options_pressed"]
 [connection signal="pressed" from="Control/Play" to="Control/Play" method="_on_Play_pressed"]
+[connection signal="pressed" from="Control/Exit" to="Control/Exit" method="_on_Exit_pressed"]

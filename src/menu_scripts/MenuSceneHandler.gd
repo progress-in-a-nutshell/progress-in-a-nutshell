@@ -17,3 +17,6 @@ func _on_Controls_pressed():
 
 func _on_Video_pressed():
 	get_tree().change_scene("res://scn/menu_scenes/VideoMenu.tscn")
+
+func _on_Exit_pressed():
+	get_tree().quit()
