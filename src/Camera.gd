@@ -1,15 +1,15 @@
 extends Camera2D
 
-export (float) var camSpeed := 720.0
-# export(float) var accelerateTime := .125
-# export(float) var deaccelerateTime := .15
+export var camSpeed : float = 720.0
+# export var accelerateTime : float= .125
+# export var deaccelerateTime : float= .15
 
-const SCROLL_LIM: float = 0.1
+var mouseInFocus : bool = false
+const SCROLL_LIM : float = 0.1
 const ZOOMCAM: Vector2 = (
     Vector2(SCROLL_LIM, SCROLL_LIM)
     * 10
 )
-
 
 func _process(dt: float):
     # camera motion control, VERY optimized :P
@@ -29,26 +29,28 @@ func _process(dt: float):
 
     # FIRST check if we've already moved
     # we don't want to add to position twice
+    # TODO: optimize lol
     if(
         not int(Input.is_action_pressed("ui_right"))
             - int(Input.is_action_pressed("ui_left"))
         and not int(Input.is_action_pressed("ui_down"))
             - int(Input.is_action_pressed("ui_up"))
+        and mouseInFocus
     ):
         # XXX: do we need mouse stuff all the time?
         # maybe just when fullscreen?
         # XXX: should we implement a limit to mouse-controlled move?
         var mousepos := get_viewport().get_mouse_position()
         var viewrect := get_viewport_rect().size
-        var mousevec : Vector2;
-    
-        # added mouse controls, if mouse is within 1/8th of the screen bounds
+        var mousevec : Vector2
+
+        # added mouse controls, if mouse is within 1/8th
+        # of the screen bounds
         if mousepos.x < viewrect.x / 8: mousevec.x = -1
         elif mousepos.x > viewrect.x * 7 / 8: mousevec.x = 1
         if mousepos.y < viewrect.y / 8: mousevec.y = -1
         elif mousepos.y > viewrect.y * 7 / 8: mousevec.y = 1
         position += mousevec * camSpeed * self.zoom * dt
-
 
 func _input(e):
     # Camera Zooming
@@ -69,3 +71,9 @@ func _input(e):
             self.zoom += ZOOMCAM
     zoom.x = clamp(zoom.x, 1.0, 100.0)
     zoom.y = clamp(zoom.y, 1.0, 100.0)
+
+func _notification(notif):
+    match(notif):
+        NOTIFICATION_WM_MOUSE_EXIT: mouseInFocus = false
+        NOTIFICATION_WM_MOUSE_ENTER: mouseInFocus = true
+    # check if mouse outise window
