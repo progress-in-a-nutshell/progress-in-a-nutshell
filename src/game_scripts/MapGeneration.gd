@@ -51,13 +51,8 @@ func GenerateWorld():
 		for y in height:
 			#tiles[x][y] = tileClass.Tile.new("tile namee", "description", "normal",Vector2(x,y), 5 * x / map_size, "owner", "status")
 			#tiles[x][y].UpdateTileTexture(self)
-			set_cellv(Vector2(x - width / 2, y - height / 2), GenerateTile(GetNoise(x,y)))
+			set_cellv(Vector2(x - width / 2, y - height / 2), GenerateTile(GetNoise(x,y),x ,y))
 	update_bitmask_region()
-	print("water " + str(water))
-	print("sand " + str(sand))
-	print("light_grass " + str(light_grass))
-	print("dark_grass " + str(dark_grass))
-	print("stone " + str(stone))
 
 # returns the noise value used to simplify getting noise
 func GetNoise(x, y):
@@ -65,13 +60,8 @@ func GetNoise(x, y):
 
 # uses the noise value to select what Textures should be placed where
 # here is where "rules" regarding terrain generation should be applied
-var water = 0
-var sand = 0
-var light_grass = 0
-var dark_grass = 0
-var stone = 0
 
-func GenerateTile(noise):
+func GenerateTile(noise, x, y):
 	if noise <= 0.05:  
 		return	TILE_TEXTURES.water
 	if noise <= 0.08: 
@@ -105,8 +95,7 @@ func InitSimplexNoiseValues():
 func _input(event):
 	# Mouse in viewport coordinates.
 	if event is InputEventMouseButton:
-		#  print("Mouse Click/Unclick at: ", event.position)
-		pass
+		print("Mouse Click/Unclick at: ", event.position)
 	elif event is InputEventMouseMotion:
 		# print(world_to_map(get_global_mouse_position()));
 		move_selection()
@@ -124,7 +113,7 @@ func move_selection():
 		lastTile = pos
 		set_cell(pos.x, pos.y, cell + 6)
 
-
+# gets called when the game starts
 func _on_TileMap_ready():
 	Init2DTileArray()
 	InitSimplexNoiseValues()
