@@ -8,7 +8,7 @@ export(bool)  var redraw setget redraw
 #the width and heigh of the map that wil be generated
 export(int)   var map_size  = 5
 
-var tileClass = preload("res://src/game_scripts/classes/tile.gd")
+var tileClass = preload("res://src/game_scripts/classes/Tile.gd")
 
 var tiles = [[]]
 
@@ -24,10 +24,10 @@ func redraw(value):
 func generate(cx, cy, len_):
 	for x in range(len_):
 		for y in range(len_):
-			tiles[x][y] = tileClass.Tile.new("tile name", "description", "normal",Vector2(x,y), 1, "owner", "status")
-			print(tiles[x][y])
-			set_cell(x, y, 1)
-
+			tiles[x][y] = tileClass.Tile.new("tile namee", "description", "normal",Vector2(x,y), 5 * x / map_size, "owner", "status")
+			print(tiles[x][y].name)
+			tiles[x][y].UpdateTileTexture(self)
+	
 
 var lastTile := Vector2(-1, -1)
 

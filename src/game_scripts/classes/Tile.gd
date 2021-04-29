@@ -67,3 +67,6 @@ class Tile:
 	func GetStatus():
 		return status # Getter must return a value.
 	
+	func UpdateTileTexture(tileMap:TileMap):
+		print("used the method")
+		tileMap.set_cell(position.x, position.y, texture)
