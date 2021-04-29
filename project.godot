@@ -18,6 +18,11 @@ config/name="Kurzgame"
 run/main_scene="res://scn/menu_scenes/MainMenu.tscn"
 config/icon="res://assets/axe.png"
 
+[autoload]
+
+GameHandler="*res://src/game_scripts/GameHandler.gd"
+OptionsHandler="*res://src/game_scripts/OptionsHandler.gd"
+
 [display]
 
 window/size/test_width=1024
