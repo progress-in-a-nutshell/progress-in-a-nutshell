@@ -6,14 +6,14 @@ extends TileMap
 export(bool)  var redraw setget redraw
 
 #the width and heigh of the map that wil be generated
-export(int)   var width  = 32
-export(int)   var height = 32
+export(int)   var width  = 1024
+export(int)   var height = 1024
 
 # SimplexNoise varibles used in generation
-export(float)   var octaves = 4
-export(float)   var period = 15
-export(float)   var lacunarity = 1.5
-export(float)   var persistance = 0.75
+export(float)   var octaves = 4.25
+export(float)   var period = 270
+export(float)   var lacunarity = 3.5
+export(float)   var persistance = 0.35
 
 # initilization of SimplexNoise class
 var simplex = OpenSimplexNoise.new()
@@ -31,7 +31,7 @@ var tiles = [[]]
 
 # Enum of texture names and index 
 var TILE_TEXTURES = {
-	"earth": 0,
+	"stone": 0,
 	"dark_grass": 1,
 	"light_grass":2 ,
 	"sand": 3,
@@ -53,6 +53,11 @@ func GenerateWorld():
 			#tiles[x][y].UpdateTileTexture(self)
 			set_cellv(Vector2(x - width / 2, y - height / 2), GenerateTile(GetNoise(x,y)))
 	update_bitmask_region()
+	print("water " + str(water))
+	print("sand " + str(sand))
+	print("light_grass " + str(light_grass))
+	print("dark_grass " + str(dark_grass))
+	print("stone " + str(stone))
 
 # returns the noise value used to simplify getting noise
 func GetNoise(x, y):
@@ -60,11 +65,23 @@ func GetNoise(x, y):
 
 # uses the noise value to select what Textures should be placed where
 # here is where "rules" regarding terrain generation should be applied
+var water = 0
+var sand = 0
+var light_grass = 0
+var dark_grass = 0
+var stone = 0
+
 func GenerateTile(noise):
-	if noise <= 0.2: return TILE_TEXTURES.light_grass
-	if noise <= 0.45: return TILE_TEXTURES.dark_grass
-	if noise <= 0.6: return TILE_TEXTURES.sand
-	return TILE_TEXTURES.water
+	if noise <= 0.05:  
+		return	TILE_TEXTURES.water
+	if noise <= 0.08: 
+		return TILE_TEXTURES.sand
+	if noise <= 0.25: 
+		return TILE_TEXTURES.light_grass
+	if noise <= 0.40: 
+		return TILE_TEXTURES.dark_grass
+	if noise <= 1:
+		return TILE_TEXTURES.stone
 
 # Used to initilize the 2D tile array
 func Init2DTileArray():
@@ -106,3 +123,9 @@ func move_selection():
 
 		lastTile = pos
 		set_cell(pos.x, pos.y, cell + 6)
+
+
+func _on_TileMap_ready():
+	Init2DTileArray()
+	InitSimplexNoiseValues()
+	GenerateWorld()
