@@ -67,7 +67,8 @@ class Tile:
 	func GetStatus():
 		return status # Getter must return a value.
 	
-	func UpdateTileTexture(tileMap:TileMap):
-		tileMap.set_cell(position.x, position.y, texture)
+	func UpdateTileTexture(tileMap:TileMap,width,height):
+		tileMap.set_cellv(Vector2(position.x - width / 2, position.y - height / 2), texture)
 	
-	
+	func Clicked():
+		print("clicked " + name)

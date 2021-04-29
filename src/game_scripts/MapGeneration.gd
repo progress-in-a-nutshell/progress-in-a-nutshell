@@ -49,29 +49,26 @@ func redraw(value):
 func GenerateWorld():
 	for x in width:
 		for y in height:
-			#tiles[x][y] = tileClass.Tile.new("tile namee", "description", "normal",Vector2(x,y), 5 * x / map_size, "owner", "status")
-			#tiles[x][y].UpdateTileTexture(self)
-			set_cellv(Vector2(x - width / 2, y - height / 2), GenerateTile(GetNoise(x,y),x ,y))
+			tiles[x][y] = GenerateTile(x, y)
+			tiles[x][y].UpdateTileTexture(self,width,height)
 	update_bitmask_region()
 
-# returns the noise value used to simplify getting noise
-func GetNoise(x, y):
-	return simplex.get_noise_2d(float(x), float(y))
 
 # uses the noise value to select what Textures should be placed where
 # here is where "rules" regarding terrain generation should be applied
 
-func GenerateTile(noise, x, y):
-	if noise <= 0.05:  
-		return	TILE_TEXTURES.water
+func GenerateTile(x, y):
+	var noise = simplex.get_noise_2d(float(x), float(y))
+	if noise <= 0.05:
+		return tileClass.Tile.new("tile namee", "description", "normal",Vector2(x,y), TILE_TEXTURES.water, "owner", "status")
 	if noise <= 0.08: 
-		return TILE_TEXTURES.sand
+		return tileClass.Tile.new("tile namee", "description", "normal",Vector2(x,y), TILE_TEXTURES.sand, "owner", "status")
 	if noise <= 0.25: 
-		return TILE_TEXTURES.light_grass
+		return tileClass.Tile.new("tile namee", "description", "normal",Vector2(x,y), TILE_TEXTURES.light_grass, "owner", "status")
 	if noise <= 0.40: 
-		return TILE_TEXTURES.dark_grass
+		return tileClass.Tile.new("tile namee", "description", "normal",Vector2(x,y),TILE_TEXTURES.dark_grass, "owner", "status")
 	if noise <= 1:
-		return TILE_TEXTURES.stone
+		return tileClass.Tile.new("tile namee", "description", "normal",Vector2(x,y), TILE_TEXTURES.stone, "owner", "status")
 
 # Used to initilize the 2D tile array
 func Init2DTileArray():
@@ -91,27 +88,23 @@ func InitSimplexNoiseValues():
 	simplex.lacunarity = lacunarity
 	simplex.persistence = persistance
 
+# gets rid of double clicks registering for now
+var clicked = 0
+
 # Handles mouse input / movement related events
 func _input(event):
 	# Mouse in viewport coordinates.
 	if event is InputEventMouseButton:
-		print("Mouse Click/Unclick at: ", event.position)
+		if event.button_index == 1:
+			if clicked % 2 == 0:
+				var x = world_to_map(get_global_mouse_position()).x
+				var y = world_to_map(get_global_mouse_position()).y
+				tiles[x][y].Clicked()
+			clicked += 1
 	elif event is InputEventMouseMotion:
 		# print(world_to_map(get_global_mouse_position()));
-		move_selection()
+
 		pass
-
-# Highlights what tile a user is hovering on
-func move_selection():
-	var pos := world_to_map(get_global_mouse_position())
-	if lastTile != pos:
-		var cell: int = get_cell(pos.x, pos.y)
-		var lastCell: int = get_cell(lastTile.x, lastTile.y)
-
-		set_cell(lastTile.x, lastTile.y, lastCell - 6)
-
-		lastTile = pos
-		set_cell(pos.x, pos.y, cell + 6)
 
 # gets called when the game starts
 func _on_TileMap_ready():
