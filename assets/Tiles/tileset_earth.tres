@@ -1,7 +1,8 @@
-[gd_resource type="TileSet" load_steps=3 format=2]
+[gd_resource type="TileSet" load_steps=4 format=2]
 
 [ext_resource path="res://assets/Tiles/tiles.earth.sel.png" type="Texture" id=1]
 [ext_resource path="res://assets/Tiles/tiles.earth.png" type="Texture" id=2]
+[ext_resource path="res://assets/Tiles/hut_1.png" type="Texture" id=3]
 
 [resource]
 0/name = "tiles.earth.png 0"
@@ -172,3 +173,17 @@
 11/shape_one_way_margin = 0.0
 11/shapes = [  ]
 11/z_index = 0
+12/name = "hut_1.png 12"
+12/texture = ExtResource( 3 )
+12/tex_offset = Vector2( 0, 0 )
+12/modulate = Color( 1, 1, 1, 1 )
+12/region = Rect2( -32, -32, 224, 192 )
+12/tile_mode = 0
+12/occluder_offset = Vector2( 0, 0 )
+12/navigation_offset = Vector2( 0, 0 )
+12/shape_offset = Vector2( 0, 0 )
+12/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+12/shape_one_way = false
+12/shape_one_way_margin = 0.0
+12/shapes = [  ]
+12/z_index = 0

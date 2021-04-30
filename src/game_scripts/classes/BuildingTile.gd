@@ -1,7 +1,4 @@
-extends "Tile.gd"
-
-class BuildingTile:
-	
+class BuildingTile extends "Tile.gd".Tile:
 	var remaining:int 		setget  SetRemaining, GetRemaining
 	var level:int 			setget  SetLevel, GetLevel
 	var max_level:int 		setget  SetMaxLevel, GetMaxLevel
@@ -12,12 +9,12 @@ class BuildingTile:
 	# The constructor for this class
 	# Is used when making a instance of this class and has as purpose
 	# To initilize its varibles
-	func _init(remaining:int, level:int, max_level:int, level_cost:int):
+	func _init(remaining:int, level:int, max_level:int, level_cost:int, name: String, description: String, type:String, position:Vector2, texture:int, owner:String, status:String).(name, description, type, position, texture, owner, status):
+		# this class vars
 		self.remaining = remaining
 		self.level = level
 		self.max_level = max_level
 		self.level_cost = level_cost
-		
 
 	# getter & setter ( remaining:Int)
 	func SetRemaining(value: int ):
@@ -42,3 +39,6 @@ class BuildingTile:
 		level_cost = value
 	func GetLevelCost():
 		return level_cost
+		
+	func Clicked():
+		print("building clicked " + self.name )

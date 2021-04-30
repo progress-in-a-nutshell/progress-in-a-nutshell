@@ -1,5 +1,3 @@
-extends Node
-
 # The tile class is used to define any 2d position on the map
 # and give it attributes 
 class Tile:
@@ -24,6 +22,7 @@ class Tile:
 		self.texture = texture
 		self.owner = owner
 		self.status = status
+		pass
 		
 	# getter & setter ( name:String )
 	func SetName(value: String):
@@ -67,8 +66,8 @@ class Tile:
 	func GetStatus():
 		return status # Getter must return a value.
 	
-	func UpdateTileTexture(tileMap:TileMap,width,height):
-		tileMap.set_cellv(Vector2(position.x - width / 2, position.y - height / 2), texture)
+	func UpdateTileTexture(tileMap:TileMap):
+		tileMap.set_cell(position.x, position.y, texture)
 	
 	func Clicked():
 		print("clicked " + name)
