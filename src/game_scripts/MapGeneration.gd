@@ -105,16 +105,11 @@ func _input(event):
 		if event.button_index == 1:
 			if clicked % 2 == 0:
 				var x = GetRealMousePosition().x
-				var y = GetRealMousePosition().y
-				print( GetRealMousePosition())
-				print( event.position)
-				print(get_global_mouse_position())
-			
+				var y = GetRealMousePosition().y			
 				tiles[x][y].Clicked()
 			clicked += 1
 	elif event is InputEventMouseMotion:
 		move_selection()
-
 		pass
 
 
