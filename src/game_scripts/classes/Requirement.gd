@@ -15,6 +15,8 @@ class Requirement:
 				return ResearchRequirementCheck()
 			"resource":
 				return ResourceRequirementCheck()
+			"terrain":
+				return TerrainRequirementCheck()
 		return true
 	
 	func ResourceRequirementCheck():
