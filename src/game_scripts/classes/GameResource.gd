@@ -6,11 +6,12 @@ class GameResource:
 	var requiredResearch: Array setget SetRequiredResearch, GetRequiredResearch
 	var unlocked: bool setget SetUnlocked, GetUnlocked
 	
-	func init(Name:String, category: String, description:String, requiredResearch:Array ):
+	func init(Name:String, category: String, description:String, requiredResearch:Array, unlocked:bool):
 		self.name = name
 		self.category = category
 		self.description = description
 		self.requiredResearch = requiredResearch
+		self.unlocked = unlocked
 
 	# getter & setter ( name:String )
 	func SetName(value: String):
