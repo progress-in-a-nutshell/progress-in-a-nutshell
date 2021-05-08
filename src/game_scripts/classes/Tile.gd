@@ -5,7 +5,7 @@ class Tile:
 	var name: String 			setget  SetName, GetName
 	var description: String 	setget  SetDescription, GetDescription
 	var type:String 			setget  SetType, GetType
-	var position: Vector2 		setget  SetPosition, GetPosition
+	var position: Vector3 		setget  SetPosition, GetPosition
 	var texture: int 		setget  SetTexture, GetTexture
 	var owner:String 			setget  SetOwner, GetOwner
 	var status:String 			setget  SetStatus, GetStatus
@@ -14,7 +14,7 @@ class Tile:
 	# The constructor for this class
 	# Is used when making a instance of this class and has as purpose
 	# To initilize its varibles
-	func _init(name: String, description: String, type:String, position:Vector2, texture:int, owner:String, status:String):
+	func _init(name: String, description: String, type:String, position:Vector3, texture:int, owner:String, status:String):
 		self.name = name
 		self.description = description
 		self.type = type
@@ -43,7 +43,7 @@ class Tile:
 		return type # Getter must return a value.
 	
 	# getter & setter ( position:Vector2 )
-	func SetPosition(value: Vector2):
+	func SetPosition(value: Vector3):
 		position = value
 	func GetPosition():
 		return position # Getter must return a value.
@@ -66,8 +66,8 @@ class Tile:
 	func GetStatus():
 		return status # Getter must return a value.
 	
-	func UpdateTileTexture(tileMap:TileMap):
-		tileMap.set_cell(position.x, position.y, texture)
+	func UpdateTileTexture(gridMap:GridMap):
+		gridMap.set_cell_item(position.x, position.y, position.z, texture)
 	
 	func Clicked():
 		print("clicked " + name)

@@ -12,7 +12,7 @@ class ResourceTile extends "Tile.gd".Tile:
 	# The constructor for this class
 	# Is used when making a instance of this class and has as purpose
 	# To initilize its varibles
-	func _init(remaining:int, level:int, max_level:int, output:int, resource, level_cost:int,name: String, description: String, type:String, position:Vector2, texture:int, owner:String, status:String).(name, description, type, position, texture, owner, status):
+	func _init(remaining:int, level:int, max_level:int, output:int, resource, level_cost:int,name: String, description: String, type:String, position:Vector3, texture:int, owner:String, status:String).(name, description, type, position, texture, owner, status):
 		self.remaining = remaining
 		self.level = level
 		self.max_level = max_level

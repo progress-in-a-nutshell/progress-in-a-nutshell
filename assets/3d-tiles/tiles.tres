@@ -1,0 +1,82 @@
+[gd_resource type="MeshLibrary" load_steps=7 format=2]
+
+[ext_resource path="res://assets/3d-tiles/tres/light_grass.tres" type="ArrayMesh" id=1]
+[ext_resource path="res://assets/3d-tiles/tres/dark_grass.tres" type="ArrayMesh" id=2]
+[ext_resource path="res://assets/3d-tiles/tres/stone.tres" type="ArrayMesh" id=3]
+[ext_resource path="res://assets/3d-tiles/tres/sand.tres" type="ArrayMesh" id=4]
+[ext_resource path="res://assets/3d-tiles/tres/water.tres" type="ArrayMesh" id=5]
+
+[sub_resource type="MeshTexture" id=1]
+
+[resource]
+item/0/name = "stone"
+item/0/mesh = ExtResource( 3 )
+item/0/mesh_transform = null
+item/0/shapes = [  ]
+item/0/navmesh_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+item/0/preview = SubResource( 1 )
+item/1/name = "dark_grass"
+item/1/mesh = ExtResource( 2 )
+item/1/mesh_transform = null
+item/1/shapes = [  ]
+item/1/navmesh_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+item/2/name = "light_grass"
+item/2/mesh = ExtResource( 1 )
+item/2/mesh_transform = null
+item/2/shapes = [  ]
+item/2/navmesh_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+item/3/name = "sand"
+item/3/mesh = ExtResource( 4 )
+item/3/mesh_transform = null
+item/3/shapes = [  ]
+item/3/navmesh_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+item/4/name = "water"
+item/4/mesh = ExtResource( 5 )
+item/4/mesh_transform = null
+item/4/shapes = [  ]
+item/4/navmesh_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+item/5/name = ""
+item/5/mesh = ExtResource( 2 )
+item/5/mesh_transform = null
+item/5/shapes = [  ]
+item/5/navmesh_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+item/6/name = ""
+item/6/mesh = ExtResource( 2 )
+item/6/mesh_transform = null
+item/6/shapes = [  ]
+item/6/navmesh_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+item/7/name = ""
+item/7/mesh = ExtResource( 1 )
+item/7/mesh_transform = null
+item/7/shapes = [  ]
+item/7/navmesh_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+item/8/name = ""
+item/8/mesh = ExtResource( 2 )
+item/8/mesh_transform = null
+item/8/shapes = [  ]
+item/8/navmesh_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+item/9/name = ""
+item/9/mesh = ExtResource( 1 )
+item/9/mesh_transform = null
+item/9/shapes = [  ]
+item/9/navmesh_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+item/10/name = ""
+item/10/mesh = ExtResource( 1 )
+item/10/mesh_transform = null
+item/10/shapes = [  ]
+item/10/navmesh_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+item/11/name = ""
+item/11/mesh = ExtResource( 2 )
+item/11/mesh_transform = null
+item/11/shapes = [  ]
+item/11/navmesh_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+item/12/name = ""
+item/12/mesh = ExtResource( 2 )
+item/12/mesh_transform = null
+item/12/shapes = [  ]
+item/12/navmesh_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+item/13/name = ""
+item/13/mesh = ExtResource( 2 )
+item/13/mesh_transform = null
+item/13/shapes = [  ]
+item/13/navmesh_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
