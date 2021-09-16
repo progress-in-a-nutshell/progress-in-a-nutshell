@@ -43,7 +43,7 @@ func generate_actually(cx, cy, len_):
 	noise.seed = randi();
 	noise.octaves = 5;
 	noise.persistence = 0.2;
-  
+
 	for x in range(len_):
 		for y in range(len_):
 			set_cell(x + cx * 32, y + cy * 32, noise.get_noise_2d(x + cx * 32, y + cy * 32) * 3 + 3);
