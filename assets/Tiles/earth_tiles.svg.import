@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/earth_tiles.svg-6c08d9ffd6bddab01d7c261f6e8e9cf9.stex"
+path="res://.import/earth_tiles.svg-481103ab2b446a2b9217893d20be2c24.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Tiles/earth_tiles.svg"
-dest_files=[ "res://.import/earth_tiles.svg-6c08d9ffd6bddab01d7c261f6e8e9cf9.stex" ]
+source_file="res://Assets/Tiles/earth_tiles.svg"
+dest_files=[ "res://.import/earth_tiles.svg-481103ab2b446a2b9217893d20be2c24.stex" ]
 
 [params]
 

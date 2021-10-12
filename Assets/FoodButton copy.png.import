@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/icon.png-487276ed1e3a0c39cad0279d744ee560.stex"
+path="res://.import/FoodButton copy.png-4ffeee5f4def8596ed9f9246a2454079.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://icon.png"
-dest_files=[ "res://.import/icon.png-487276ed1e3a0c39cad0279d744ee560.stex" ]
+source_file="res://Assets/FoodButton copy.png"
+dest_files=[ "res://.import/FoodButton copy.png-4ffeee5f4def8596ed9f9246a2454079.stex" ]
 
 [params]
 
