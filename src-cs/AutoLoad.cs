@@ -1,6 +1,4 @@
 using Godot;
-using System;
-using System.Collections.Generic;
 
 public class AutoLoad : Node
 {
@@ -27,6 +25,7 @@ public class AutoLoad : Node
         if (!saveGame.FileExists("user://savegame.save")) return;
 
         saveGame.Open("user://savegame.save", File.ModeFlags.Read);
+
         stats = saveGame.GetAsText();
     }
 }

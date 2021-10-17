@@ -1,5 +1,4 @@
 using Godot;
-using System;
 
 public class TestFile : Node2D
 {
@@ -45,9 +44,7 @@ public class TestFile : Node2D
         var saveFile = new File();
 
         if (!saveFile.FileExists("user://saved.map")) return false;
-        var err = saveFile.Open("user://saved.map", File.ModeFlags.Read);
-
-        if (err != Error.Ok) throw new Exception($"Error while opening file \"user://saved.map\"\n{err}");
+        saveFile.Open("user://saved.map", File.ModeFlags.Read);
 
         while (saveFile.GetPosition() != saveFile.GetLen())
         {
