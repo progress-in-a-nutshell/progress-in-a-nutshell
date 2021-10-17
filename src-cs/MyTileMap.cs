@@ -7,15 +7,15 @@ public class MyTileMap : TileMap
     //export the noise so that you can set it in the editor not in the code
     [Export] OpenSimplexNoise Noise;
     //have to set rng as a variable (you should do that in gdscript aswell)
-    RandomNumberGenerator _rng;
+    RandomNumberGenerator rng;
 
-    Vector2 _lastTile;
+    Vector2 lastTile;
 
     //also stop fucking leaving func _ready(): pass thing
     //remove it if its useless
     //or put todo comment in it
 
-    public override void _Ready() => _rng.Randomize();
+    public override void _Ready() => rng.Randomize();
     public override void _Input(InputEvent @event)
     {
         //mouse in viewport coord
@@ -25,15 +25,15 @@ public class MyTileMap : TileMap
     public void MoveSelection()
     {
         var pos = WorldToMap(GetGlobalMousePosition());
-        if (_lastTile != pos)
+        if (lastTile != pos)
         {
             //implicit casting cringe and C# disables implicit casting from simple to complex types
             var cell = GetCell((int)pos.x, (int)pos.y);
-            var lastCell = GetCell((int)_lastTile.x, (int)_lastTile.y);
+            var lastCell = GetCell((int)lastTile.x, (int)lastTile.y);
 
-            SetCell((int)_lastTile.x, (int)_lastTile.y, lastCell - 6);
+            SetCell((int)lastTile.x, (int)lastTile.y, lastCell - 6);
 
-            _lastTile = pos;
+            lastTile = pos;
             SetCell((int)pos.x, (int)pos.y, cell + 6);
         }
     }
@@ -55,7 +55,7 @@ public class MyTileMap : TileMap
         if (GetCell(cx, cy) >= 0) return;
         SetCell(cx, cy, 0);
 
-        Noise.Seed = (int)_rng.Randi();
+        Noise.Seed = (int)rng.Randi();
 
         for (int x = 0; x < len; x++)
         {

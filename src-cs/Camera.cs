@@ -6,12 +6,12 @@ public class Camera : Camera2D
     //[Export] float accelerateTime = 0.125f;
     //[Export] float deaccelerateTime = 0.15f;
 
-    const float _scrollLim = 0.1f;
-    const float _minZoom = 1f;
-    const float _maxZoom = 100f;
+    const float SCROLL_LIM = 0.1f;
+    const float MIN_ZOOM = 1f;
+    const float MAX_ZOOM = 100f;
 
     //because primitive types only can be constant in C#
-    static readonly Vector2 Zoomcam = new Vector2(_scrollLim, _scrollLim);
+    static readonly Vector2 ZOOM_CAM = new Vector2(SCROLL_LIM, SCROLL_LIM);
 
     public override void _Process(float delta)
     {
@@ -35,20 +35,20 @@ public class Camera : Camera2D
             //we dont need match or enum fuck you
             if (iemb.IsPressed())
             {
-                if (iemb.ButtonIndex == (int)ButtonList.WheelUp) zoom -= Zoomcam;
-                else if (iemb.ButtonIndex == (int)ButtonList.WheelDown) zoom += Zoomcam;
+                if (iemb.ButtonIndex == (int)ButtonList.WheelUp) zoom -= ZOOM_CAM;
+                else if (iemb.ButtonIndex == (int)ButtonList.WheelDown) zoom += ZOOM_CAM;
             }
         }
         //for touchpads
         else if (@event is InputEventPanGesture iepg)
         {
-            if (iepg.Delta.y > 0f) zoom -= Zoomcam;
-            else if (iepg.Delta.y < 0f) zoom += Zoomcam;
+            if (iepg.Delta.y > 0f) zoom -= ZOOM_CAM;
+            else if (iepg.Delta.y < 0f) zoom += ZOOM_CAM;
         }
 
         //zoom limit
-        zoom.x = Mathf.Clamp(Zoom.x, _minZoom, _maxZoom);
-        zoom.y = Mathf.Clamp(Zoom.y, _minZoom, _maxZoom);
+        zoom.x = Mathf.Clamp(Zoom.x, MIN_ZOOM, MAX_ZOOM);
+        zoom.y = Mathf.Clamp(Zoom.y, MIN_ZOOM, MAX_ZOOM);
 
         //set the variable
         Zoom = zoom;

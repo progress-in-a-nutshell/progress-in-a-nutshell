@@ -2,7 +2,7 @@ using Godot;
 
 public class AutoLoad : Node
 {
-    float _gravity = 80f;
+    float gravity = 80f;
     //default save stats or smth
     //Dictionary<string, int> stats = new Dictionary<string, int>
     //{
@@ -10,7 +10,7 @@ public class AutoLoad : Node
     //    {"xp", 1}
     //};
     //cant cast string to dictitionary
-    string _stats;
+    string stats;
 
     public void Save(string saveDict)
     {
@@ -26,6 +26,6 @@ public class AutoLoad : Node
 
         saveGame.Open("user://savegame.save", File.ModeFlags.Read);
 
-        _stats = saveGame.GetAsText();
+        stats = saveGame.GetAsText();
     }
 }
