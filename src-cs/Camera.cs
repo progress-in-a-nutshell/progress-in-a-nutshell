@@ -2,16 +2,16 @@ using Godot;
 
 public class Camera : Camera2D
 {
-    [Export] float camSpeed = 720f;
+    [Export] float CamSpeed = 720f;
     //[Export] float accelerateTime = 0.125f;
     //[Export] float deaccelerateTime = 0.15f;
 
-    const float ScrollLim = 0.1f;
-    const float MinZoom = 1f;
-    const float MaxZoom = 100f;
+    const float _scrollLim = 0.1f;
+    const float _minZoom = 1f;
+    const float _maxZoom = 100f;
 
     //because primitive types only can be constant in C#
-    static readonly Vector2 Zoomcam = new Vector2(ScrollLim, ScrollLim);
+    static readonly Vector2 Zoomcam = new Vector2(_scrollLim, _scrollLim);
 
     public override void _Process(float delta)
     {
@@ -21,7 +21,7 @@ public class Camera : Camera2D
         Position += new Vector2(
             (float)((Input.IsActionPressed("ui_right") ? 1 : 0) - (Input.IsActionPressed("ui_left") ? 1 : 0)),
             (float)((Input.IsActionPressed("ui_up") ? 1 : 0) - (Input.IsActionPressed("ui_down") ? 1 : 0))
-        ).Normalized() * camSpeed * Zoom * delta;
+        ).Normalized() * CamSpeed * Zoom * delta;
     }
     public override void _Input(InputEvent @event)
     {
@@ -47,8 +47,8 @@ public class Camera : Camera2D
         }
 
         //zoom limit
-        zoom.x = Mathf.Clamp(Zoom.x, MinZoom, MaxZoom);
-        zoom.y = Mathf.Clamp(Zoom.y, MinZoom, MaxZoom);
+        zoom.x = Mathf.Clamp(Zoom.x, _minZoom, _maxZoom);
+        zoom.y = Mathf.Clamp(Zoom.y, _minZoom, _maxZoom);
 
         //set the variable
         Zoom = zoom;
