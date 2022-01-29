@@ -22,6 +22,7 @@ Website (in development): [In A Nutshell](https://progress-in-a-nutshell.netlify
 |   Falderappes  | contributing ideas  |
 |     Deejah     | contributing ideas  |
 |      Triw      | contributing ideas  |
+|     RGBCube    | contributing ideas  |
 |       Saf      | contributing ideas  |
 |       s-mv     | code contributor    |
 |      Benji     | moral support and some git stuff |
